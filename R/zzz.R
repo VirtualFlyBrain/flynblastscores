@@ -2,6 +2,6 @@
 .onAttach <- function(libname, pkgname) {
   options(rgl.useNULL=TRUE)
   options('flycircuit.scoremat'="allbyallblastcv4.5.ff")
-  flycircuit::fc_attach_bigmat('allbyallblastcv4.5.ff')
+  load_si_data('allbyallblastcv4.5.ff')
   invisible()
 }
