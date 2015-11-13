@@ -1,0 +1,16 @@
+Package: flynblastscores
+Type: Package
+Title: Programmatic return of pre-computed NBLAST scores for fly neurons
+Version: 0.1
+Date: 2015-11-12
+Author: Gregory Jefferis
+Maintainer: Gregory Jefferis <jefferis@gmail.com>
+Description: Returns pre-computed NBLAST scores for given flycircuit identifiers
+    against neurons or GMR Gal4 lines. Suitable for use with opencpu stack.
+License: GPL-3
+LazyData: TRUE
+Depends:
+    flycircuit
+Imports:
+    methods
+RoxygenNote: 5.0.0
