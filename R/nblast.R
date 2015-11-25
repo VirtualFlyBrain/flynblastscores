@@ -1,6 +1,5 @@
 #' Fetch precomputed nblast scores between flycircuit neurons
 #' @inheritParams flycircuit::fc_nblast
-#'
 #' @export
 flycircuit_nblast<-function (query, target, normalisation = c("normalised", "mean", "raw")) {
   normalisation=match.arg(normalisation)
@@ -12,6 +11,7 @@ flycircuit_nblast<-function (query, target, normalisation = c("normalised", "mea
 #'
 #' @param query A flycircuit identifier
 #' @param n The number of scores to return
+#' @param ... Additional arguments passed to \code{\link{flycircuit_nblast}}
 #' @return a data.frame in descending score order with columns \itemize{
 #'
 #'   \item id Flycircuit Neuron name (or GMR id for \code{flycircuit_gmr_topn})
@@ -57,6 +57,7 @@ gmr_from_path<-function(x){
 #' @examples
 #' flycircuit_gmr_topn("VGlut-F-200269")
 #' @export
+#' @rdname flycircuit_topn
 flycircuit_gmr_topn<-function(query, n=50) {
   if(length(query)!=1) stop("Expects exactly one query neuron")
   query=fc_gene_name(query)
