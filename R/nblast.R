@@ -56,7 +56,22 @@ gmr_from_path<-function(x){
 #' @description \code{flycircuit_gmr_topn} finds the top GMR Gal4 lines matching
 #'   a FlyCircuit neuron query.
 #' @examples
-#' flycircuit_gmr_topn("VGlut-F-200269")
+#' # NBLAST a flycircuit neuron
+#' res=flycircuit_gmr_topn("VGlut-F-200269")
+#' res
+#'
+#' # look at co-registered top hits on VFB
+#' if(require('vfbr')){
+#'  # find vfb ids for hits
+#'  vfbids=vfbr::gmr_vfbid(res$id)
+#'  # find vfb id for query
+#'  qid=vfb_tovfbids('VGlut-F-200269')
+#'  # stack browser URL
+#'  u=vfb_stack_url(vfbids[1:10], clear = TRUE)
+#'  \dontrun{
+#'  browseURL(u)
+#'  }
+#' }
 #'
 #' @export
 #' @rdname flycircuit_topn
