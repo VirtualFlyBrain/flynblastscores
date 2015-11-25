@@ -45,7 +45,8 @@ flycircuit_topn<-function (query, n=50, ...) {
   if(length(query)!=1) stop("Expects exactly one query neuron")
   sc=flycircuit_nblast(query,...)
   topn=sort(sc, decreasing = TRUE)[seq_len(n)]
-  data.frame(id=fc_neuron(names(topn)), score=unname(topn))
+  data.frame(id=flycircuit::fc_neuron(names(topn)), score=unname(topn),
+             stringsAsFactors = FALSE)
 }
 
 gmr_from_path<-function(x){
@@ -56,6 +57,7 @@ gmr_from_path<-function(x){
 #'   a FlyCircuit neuron query.
 #' @examples
 #' flycircuit_gmr_topn("VGlut-F-200269")
+#'
 #' @export
 #' @rdname flycircuit_topn
 flycircuit_gmr_topn<-function(query, n=50) {
@@ -65,5 +67,6 @@ flycircuit_gmr_topn<-function(query, n=50) {
   sc=scoremat[,query]
   topn=sort(sc, decreasing = TRUE)[seq_len(n)]
   self_score=flycircuit::fc_nblast(query, query,normalisation = )
-  data.frame(id=gmr_from_path(names(topn)), score=unname(topn)/self_score)
+  data.frame(id=gmr_from_path(names(topn)), score=unname(topn)/self_score,
+             stringsAsFactors = FALSE)
 }
