@@ -14,9 +14,11 @@ flycircuit_nblast<-function (query, target, normalisation = c("normalised", "mea
 #' @param n The number of scores to return
 #' @return a data.frame in descending score order with columns \itemize{
 #'
-#'   \item id Flycircuit Neuron name
+#'   \item id Flycircuit Neuron name (or GMR id for \code{flycircuit_gmr_topn})
 #'
-#'   \item score NBLAST score
+#'   \item score NBLAST score (normalised -1 (bad) to +1 (perfect)). Scores
+#'   above 0 are potentially interesting, scores above about 0.4 seriously
+#'   interesing.
 #'
 #'   }
 #' @examples \dontrun{
@@ -50,6 +52,11 @@ gmr_from_path<-function(x){
   sub("GMR_([0-9]{1,2}[A-H][0-9]{2})_.*","\\1",basename(x))
 }
 
+#' @description \code{flycircuit_gmr_topn} finds the top GMR Gal4 lines matching
+#'   a FlyCircuit neuron query.
+#' @examples
+#' flycircuit_gmr_topn("VGlut-F-200269")
+#' @export
 flycircuit_gmr_topn<-function(query, n=50) {
   if(length(query)!=1) stop("Expects exactly one query neuron")
   query=fc_gene_name(query)

@@ -14,9 +14,11 @@ flycircuit_topn(query, n = 50, ...)
 \value{
 a data.frame in descending score order with columns \itemize{
 
-  \item id Flycircuit Neuron name
+  \item id Flycircuit Neuron name (or GMR id for \code{flycircuit_gmr_topn})
 
-  \item score NBLAST score
+  \item score NBLAST score (normalised -1 (bad) to +1 (perfect)). Scores
+  above 0 are potentially interesting, scores above about 0.4 seriously
+  interesing.
 
   }
 }
