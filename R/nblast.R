@@ -57,7 +57,8 @@ gmr_from_path<-function(x){
 #'   a FlyCircuit neuron query.
 #' @examples
 #' # NBLAST a flycircuit neuron
-#' res=flycircuit_gmr_topn("VGlut-F-200269")
+#' qid="VGlut-F-100184"
+#' res=flycircuit_gmr_topn(qid)
 #' res
 #'
 #' # look at co-registered top hits on VFB
@@ -65,9 +66,9 @@ gmr_from_path<-function(x){
 #'  # find vfb ids for hits
 #'  vfbids=vfbr::gmr_vfbid(res$id)
 #'  # find vfb id for query
-#'  qid=vfb_tovfbids('VGlut-F-200269')
-#'  # stack browser URL
-#'  u=vfb_stack_url(vfbids[1:10], clear = TRUE)
+#'  qvfbid=vfb_tovfbids(qid)
+#'  # stack browser URL for query neuron and top 10 hits
+#'  u=vfb_stack_url(rev(c(qvfbid, vfbids[1:10])), clear = TRUE)
 #'  \dontrun{
 #'  browseURL(u)
 #'  }

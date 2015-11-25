@@ -53,6 +53,22 @@ curl http://vfbdev.inf.ed.ac.uk/ocpu/tmp/x05f62b2975/R/.val/csv
 # specify number of hits, use "neuron" identifier
 curl http://vfbdev.inf.ed.ac.uk/ocpu/library/flynblastscores/R/flycircuit_topn -d 'query="fru-M-200266"&n=10'
 }
-flycircuit_gmr_topn("VGlut-F-200269")
+# NBLAST a flycircuit neuron
+qid="VGlut-F-100184"
+res=flycircuit_gmr_topn(qid)
+res
+
+# look at co-registered top hits on VFB
+if(require('vfbr')){
+ # find vfb ids for hits
+ vfbids=vfbr::gmr_vfbid(res$id)
+ # find vfb id for query
+ qvfbid=vfb_tovfbids(qid)
+ # stack browser URL for query neuron and top 10 hits
+ u=vfb_stack_url(rev(c(qvfbid, vfbids[1:10])), clear = TRUE)
+ \dontrun{
+ browseURL(u)
+ }
+}
 }
 
