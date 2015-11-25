@@ -60,10 +60,10 @@ gmr_from_path<-function(x){
 #' @rdname flycircuit_topn
 flycircuit_gmr_topn<-function(query, n=50) {
   if(length(query)!=1) stop("Expects exactly one query neuron")
-  query=fc_gene_name(query)
-  scoremat <- fc_attach_bigmat('scall.sampled.bm')
+  query=flycircuit::fc_gene_name(query)
+  scoremat <- flycircuit::fc_attach_bigmat('scall.sampled.bm')
   sc=scoremat[,query]
   topn=sort(sc, decreasing = TRUE)[seq_len(n)]
-  self_score=fc_nblast(query, query,normalisation = )
+  self_score=flycircuit::fc_nblast(query, query,normalisation = )
   data.frame(id=gmr_from_path(names(topn)), score=unname(topn)/self_score)
 }
