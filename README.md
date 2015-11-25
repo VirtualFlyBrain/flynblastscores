@@ -11,7 +11,10 @@ functions of interest
 [flycircuit](http://flycircuit.tw) neurons.
 
 `flycircuit_gmr_topn` returns scores for querying flycircuit neurons againt a
-processed version of the [GMR Gal4 lines](flweb.janelia.org/cgi-bin/flew.cgi).
+processed version of the [GMR Gal4 lines](http://flweb.janelia.org/cgi-bin/flew.cgi).
+
+These functions can be used in any classic R environment or as the basis of
+a RESTful interface through the [opencpu](http://opencpu.org) API.
 
 ## Installation
 Note that installing/using this package will trigger a one time download of about 1.5 Gb
