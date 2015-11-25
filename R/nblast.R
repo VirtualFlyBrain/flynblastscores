@@ -45,3 +45,16 @@ flycircuit_topn<-function (query, n=50, ...) {
   topn=sort(sc, decreasing = TRUE)[seq_len(n)]
   data.frame(id=fc_neuron(names(topn)), score=unname(topn))
 }
+
+gmr_from_path<-function(x){
+  sub("GMR_([0-9]{1,2}[A-H][0-9]{2})_.*","\\1",basename(x))
+}
+
+flycircuit_gmr_topn<-function(query, n=50) {
+  if(length(query)!=1) stop("Expects exactly one query neuron")
+  query=fc_gene_name(query)
+  sc=scall.sampled[,query]
+  topn=sort(sc, decreasing = TRUE)[seq_len(n)]
+  self_score=fc_nblast(query, query,normalisation = )
+  data.frame(id=gmr_from_path(names(topn)), score=unname(topn)/self_score)
+}
