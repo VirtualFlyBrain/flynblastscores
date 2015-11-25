@@ -13,4 +13,6 @@ Depends:
     flycircuit
 Imports:
     methods
+Suggests:
+    vfbr
 RoxygenNote: 5.0.0

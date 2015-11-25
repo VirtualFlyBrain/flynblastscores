@@ -26,6 +26,10 @@ but you  can use the **devtools** [1] package to install the development version
 ```r
 if (!require("devtools")) install.packages("devtools")
 devtools::install_github("jefferis/flynblastscores")
+
+# You may also want to install the suggested package vfbr to interact with
+# resources on the virtual fly brain website
+devtools::install_github("jefferis/vfbr")
 ```
 
 ## Use
