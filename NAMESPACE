@@ -3,5 +3,6 @@
 export(flycircuit_gmr_topn)
 export(flycircuit_nblast)
 export(flycircuit_topn)
+export(flynblastscores_storage_dir)
 import(methods)
 importFrom(flycircuit,load_si_data)
