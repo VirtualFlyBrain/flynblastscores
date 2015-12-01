@@ -23,7 +23,17 @@ flycircuit_nblast<-function (query, target, normalisation = c("normalised", "mea
 #'   }
 #' @examples \dontrun{
 #' ## example of remote call via curl
-#' curl http://vfbdev.inf.ed.ac.uk/ocpu/library/flynblastscores/R/flycircuit_topn -d 'query="FruMARCM-M002262_seg001"'
+#'
+#' ## simple version collecting json results directly (RECOMMENDED)
+#' curl http://vfbdev.inf.ed.ac.uk/ocpu/library/flynblastscores/R/flycircuit_topn/json \
+#'   -d 'query="FruMARCM-M002262_seg001"'
+#' # top 3 hits only
+#' curl http://vfbdev.inf.ed.ac.uk/ocpu/library/flynblastscores/R/flycircuit_topn/json \
+#'   -d 'query="FruMARCM-M002262_seg001"&n=3'
+#'
+#' ## more flexible version
+#' curl http://vfbdev.inf.ed.ac.uk/ocpu/library/flynblastscores/R/flycircuit_topn \
+#'   -d 'query="FruMARCM-M002262_seg001"'
 #' # (return value looks like this and includes sesion key)
 #' /ocpu/tmp/x05f62b2975/R/.val
 #' /ocpu/tmp/x05f62b2975/messages
@@ -38,7 +48,8 @@ flycircuit_nblast<-function (query, target, normalisation = c("normalised", "mea
 #' curl http://vfbdev.inf.ed.ac.uk/ocpu/tmp/x05f62b2975/R/.val/csv
 #'
 #' # specify number of hits, use "neuron" identifier
-#' curl http://vfbdev.inf.ed.ac.uk/ocpu/library/flynblastscores/R/flycircuit_topn -d 'query="fru-M-200266"&n=10'
+#' curl http://vfbdev.inf.ed.ac.uk/ocpu/library/flynblastscores/R/flycircuit_topn \
+#'   -d 'query="fru-M-200266"&n=10'
 #' }
 #' @export
 flycircuit_topn<-function (query, n=50, ...) {
