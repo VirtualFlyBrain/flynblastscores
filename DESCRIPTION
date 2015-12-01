@@ -1,8 +1,8 @@
 Package: flynblastscores
 Type: Package
 Title: Programmatic return of pre-computed NBLAST scores for fly neurons
-Version: 0.1
-Date: 2015-11-12
+Version: 0.2
+Date: 2015-12-01
 Author: Gregory Jefferis
 Maintainer: Gregory Jefferis <jefferis@gmail.com>
 Description: Returns pre-computed NBLAST scores for given flycircuit identifiers
