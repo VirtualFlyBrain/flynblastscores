@@ -1,8 +1,7 @@
 Package: flynblastscores
 Type: Package
 Title: Programmatic return of pre-computed NBLAST scores for fly neurons
-Version: 0.2
-Date: 2015-12-01
+Version: 0.3
 Authors@R: person("Gregory","Jefferis", email="jefferis@gmail.com", 
     role = c("aut", "cre"), comment = c(ORCID = "0000-0002-0587-9355"))
 Description: Returns pre-computed NBLAST scores for given flycircuit identifiers
