@@ -10,7 +10,8 @@ flycircuit_nblast<-function (query, target, normalisation = c("normalised", "mea
 #' NBLAST a single flycircuit neuron against database and return scores
 #'
 #' @param query A flycircuit identifier
-#' @param n The number of scores to return
+#' @param n The number of scores to return (if \code{n=0} or \code{n} is greater
+#'   than the number of scores, then all scores are returned.
 #' @param ... Additional arguments passed to \code{\link{flycircuit_nblast}}
 #' @return a data.frame in descending score order with columns \itemize{
 #'
@@ -55,7 +56,8 @@ flycircuit_nblast<-function (query, target, normalisation = c("normalised", "mea
 flycircuit_topn<-function (query, n=50, ...) {
   if(length(query)!=1) stop("Expects exactly one query neuron")
   sc=flycircuit_nblast(query,...)
-  topn=sort(sc, decreasing = TRUE)[seq_len(n)]
+  topn=sort(sc, decreasing = TRUE)
+  if(is.finite(n) && n>0 && n<length(topn)) topn=topn[seq_len(n)]
   data.frame(id=flycircuit::fc_neuron(names(topn)), score=unname(topn),
              stringsAsFactors = FALSE)
 }
@@ -71,6 +73,10 @@ gmr_from_path<-function(x){
 #' qid="VGlut-F-100184"
 #' res=flycircuit_gmr_topn(qid)
 #' res
+#'
+#' # return all results
+#' resall=flycircuit_gmr_topn(qid, n=0)
+#' nrow(resall)
 #'
 #' # look at co-registered top hits on VFB
 #' if(require('vfbr')){
@@ -92,7 +98,9 @@ flycircuit_gmr_topn<-function(query, n=50) {
   query=flycircuit::fc_gene_name(query)
   scoremat <- flycircuit::fc_attach_bigmat('scall.sampled.bm')
   sc=scoremat[,query]
-  topn=sort(sc, decreasing = TRUE)[seq_len(n)]
+  topn=sort(sc, decreasing = TRUE)
+  if(is.finite(n) && n>0 && n<length(topn)) topn=topn[seq_len(n)]
+
   self_score=flycircuit::fc_nblast(query, query,normalisation = )
   data.frame(id=gmr_from_path(names(topn)), score=unname(topn)/self_score,
              stringsAsFactors = FALSE)

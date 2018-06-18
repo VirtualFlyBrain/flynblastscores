@@ -12,7 +12,8 @@ flycircuit_gmr_topn(query, n = 50)
 \arguments{
 \item{query}{A flycircuit identifier}
 
-\item{n}{The number of scores to return}
+\item{n}{The number of scores to return (if \code{n=0} or \code{n} is greater
+than the number of scores, then all scores are returned.}
 
 \item{...}{Additional arguments passed to \code{\link{flycircuit_nblast}}}
 }
@@ -68,6 +69,10 @@ curl http://vfbdev.inf.ed.ac.uk/ocpu/library/flynblastscores/R/flycircuit_topn \
 qid="VGlut-F-100184"
 res=flycircuit_gmr_topn(qid)
 res
+
+# return all results
+resall=flycircuit_gmr_topn(qid, n=0)
+nrow(resall)
 
 # look at co-registered top hits on VFB
 if(require('vfbr')){
