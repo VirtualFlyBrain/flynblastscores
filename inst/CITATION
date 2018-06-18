@@ -1,0 +1,13 @@
+structure(list(structure(list(author = structure(list(list(given = "Marta", 
+    family = "Costa", role = NULL, email = NULL, comment = NULL), 
+    list(given = c("James", "D"), family = "Manton", role = NULL, 
+        email = NULL, comment = NULL), list(given = c("Aaron", 
+    "D"), family = "Ostrovsky", role = NULL, email = NULL, comment = NULL), 
+    list(given = "Steffen", family = "Prohaska", role = NULL, 
+        email = NULL, comment = NULL), list(given = c("Gregory", 
+    "S", "X", "E"), family = "Jefferis", role = NULL, email = NULL, 
+        comment = NULL)), class = "person"), journal = "Neuron", 
+    month = "Jul", number = "2", pages = "293-311", title = "NBLAST: Rapid, Sensitive Comparison of Neuronal Structure and Construction of Neuron Family Databases", 
+    volume = "91", year = "2016"), bibtype = "Article", key = "Costa:2016aa", dateobj = structure(1467331200, class = c("POSIXct", 
+"POSIXt"), tzone = "UTC", day.mon = 1L))), class = c("BibEntry", 
+"bibentry"))
