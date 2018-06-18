@@ -2,11 +2,10 @@
 % Please edit documentation in R/flynblastscores-package.R
 \docType{package}
 \name{flynblastscores-package}
-\alias{flynblastscores}
 \alias{flynblastscores-package}
+\alias{flynblastscores}
 \title{Functions to return pre-computed NBLAST scores}
 \description{
 Functions to return pre-computed NBLAST scores
 }
 \keyword{package}
-

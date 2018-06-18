@@ -9,18 +9,17 @@ flycircuit_nblast(query, target, normalisation = c("normalised", "mean",
 }
 \arguments{
 \item{query}{Vectors of FlyCircuit identifiers (Neuron name, gene_name
-or integer idid are all acceptable since they will be processed by
+or integer idid are all acceptable since they will be processed by 
 \code{\link{fc_gene_name}}).}
 
 \item{target}{Vectors of FlyCircuit identifiers (Neuron name, gene_name
-or integer idid are all acceptable since they will be processed by
+or integer idid are all acceptable since they will be processed by 
 \code{\link{fc_gene_name}}).}
 
-\item{normalisation}{the type of normalisation procedure that should be
-carried out, selected from \code{'raw'}, \code{'normalised'} or
+\item{normalisation}{the type of normalisation procedure that should be 
+carried out, selected from \code{'raw'}, \code{'normalised'} or 
 \code{'mean'} (i.e. the average of normalised scores in both directions).}
 }
 \description{
 Fetch precomputed nblast scores between flycircuit neurons
 }
-

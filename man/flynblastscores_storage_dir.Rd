@@ -12,4 +12,3 @@ Character vector defining path
 \description{
 Return the location in which external data (i.e. score matrices) are stored
 }
-
