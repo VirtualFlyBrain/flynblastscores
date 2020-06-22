@@ -5,7 +5,4 @@
 \alias{flynblastscores-package}
 \alias{flynblastscores}
 \title{Functions to return pre-computed NBLAST scores}
-\description{
-Functions to return pre-computed NBLAST scores
-}
 \keyword{package}

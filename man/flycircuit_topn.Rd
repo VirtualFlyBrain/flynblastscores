@@ -29,8 +29,6 @@ a data.frame in descending score order with columns \itemize{
   }
 }
 \description{
-NBLAST a single flycircuit neuron against database and return scores
-
 \code{flycircuit_gmr_topn} finds the top GMR Gal4 lines matching
   a FlyCircuit neuron query.
 }
@@ -39,14 +37,14 @@ NBLAST a single flycircuit neuron against database and return scores
 ## example of remote call via curl
 
 ## simple version collecting json results directly (RECOMMENDED)
-curl http://vfbdev.inf.ed.ac.uk/ocpu/library/flynblastscores/R/flycircuit_topn/json \\
+curl http://vfbdev.inf.ed.ac.uk/ocpu/library/flynblastscores/R/flycircuit_topn/json \
   -d 'query="FruMARCM-M002262_seg001"'
 # top 3 hits only
-curl http://vfbdev.inf.ed.ac.uk/ocpu/library/flynblastscores/R/flycircuit_topn/json \\
+curl http://vfbdev.inf.ed.ac.uk/ocpu/library/flynblastscores/R/flycircuit_topn/json \
   -d 'query="FruMARCM-M002262_seg001"&n=3'
 
 ## more flexible version
-curl http://vfbdev.inf.ed.ac.uk/ocpu/library/flynblastscores/R/flycircuit_topn \\
+curl http://vfbdev.inf.ed.ac.uk/ocpu/library/flynblastscores/R/flycircuit_topn \
   -d 'query="FruMARCM-M002262_seg001"'
 # (return value looks like this and includes sesion key)
 /ocpu/tmp/x05f62b2975/R/.val
@@ -62,7 +60,7 @@ curl http://vfbdev.inf.ed.ac.uk/ocpu/tmp/x05f62b2975/R/.val/json
 curl http://vfbdev.inf.ed.ac.uk/ocpu/tmp/x05f62b2975/R/.val/csv
 
 # specify number of hits, use "neuron" identifier
-curl http://vfbdev.inf.ed.ac.uk/ocpu/library/flynblastscores/R/flycircuit_topn \\
+curl http://vfbdev.inf.ed.ac.uk/ocpu/library/flynblastscores/R/flycircuit_topn \
   -d 'query="fru-M-200266"&n=10'
 }
 # NBLAST a flycircuit neuron
