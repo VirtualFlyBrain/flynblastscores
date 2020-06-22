@@ -16,3 +16,6 @@ Suggests:
     vfbr
 RoxygenNote: 7.1.0
 Encoding: UTF-8
+Remotes:
+    natverse/flycircuit
+    jefferis/vfbr
