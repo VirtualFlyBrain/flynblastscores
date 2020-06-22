@@ -5,8 +5,14 @@
     options(rgl.useNULL=TRUE)
 
   options('flycircuit.scoremat'="allbyallblastcv4.5.ff")
-  flycircuit::load_si_data('allbyallblastcv4.5.ff')
-  flycircuit::load_si_data("scall.sampled.bm.desc")
+  tryCatch(
+    flycircuit::load_si_data('allbyallblastcv4.5.ff'),
+    error=function(e) warning(e)
+  )
+  tryCatch(
+    flycircuit::load_si_data("scall.sampled.bm.desc"),
+    error=function(e) warning(e)
+  )
 
   invisible()
 }
